@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+body {
+  @apply bg-gray-800 text-white;
+}
+
+
 /* custom-scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;

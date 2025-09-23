@@ -16,64 +16,34 @@ const HomePage: React.FC = () => {
   return (
     <div className="font-sans scroll-smooth bg-gray-800 text-gray-800">
       <section className="relative w-full h-screen flex">
-      {/* Left side content */}
-      <div className="absolute inset-0 flex items-center px-16 z-10">
-        <div className="w-1/2 text-white">
-          <h1 className="text-6xl font-bold">Be Ready. Stay Safe.<br />Learn Disaster Preparedness Digitally.</h1>
-          <p className="mt-6 text-lg text-gray-300">
-            Stay prepared with our AI-powered disaster prediction and
-            response system.
-          </p>
+        {/* Left side content */}
+        <div className="absolute inset-0 flex items-center px-16 z-10">
+          <div className="w-1/2 text-white">
+            <h1 className="text-6xl font-bold"><span className="text-blue-600">Be Ready. Stay Safe.</span><br /><h2 className="text-red-700 mt-2">Learn Disaster Preparedness Digitally.</h2></h1>
+            <p className="mt-6 text-lg text-gray-300">
+              Stay prepared with our AI-powered disaster prediction and
+              response system.
+            </p>
+          </div>
         </div>
-      </div>
 
-      {/* Background video */}
-      <video
-        key={currentVideo} // forces re-render so new video starts
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        muted
-        playsInline
-        onEnded={handleVideoEnd} // trigger next video
-      >
-        <source src={videoSources[currentVideo]} type="video/mp4" />
-      </video>
+        {/* Background video */}
+        <video
+          key={currentVideo} // forces re-render so new video starts
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          playsInline
+          onEnded={handleVideoEnd} // trigger next video
+        >
+          <source src={videoSources[currentVideo]} type="video/mp4" />
+        </video>
 
-      {/* Black → Transparent overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
-    </section>
+        {/* Black → Transparent overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
+      </section>
 
-      {/* Hero */}
-      {/* <section
-        id="hero"
-        className="relative bg-gradient-to-r from-blue-600 to-cyan-400 text-white text-center py-24 px-4"
-      >
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Be Ready. Stay Safe.<br />Learn Disaster Preparedness Digitally.
-        </h1>
-        <p className="text-lg md:text-xl mb-6">
-          Interactive drills, gamified learning, and real-time alerts for schools & colleges.
-        </p>
-        <div className="flex justify-center flex-wrap gap-4 mb-10">
-          <button className="px-6 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 transition">Start Learning</button>
-          <button className="px-6 py-3 rounded-xl bg-white text-blue-600 hover:bg-gray-200 transition">Join a Drill</button>
-          <button className="px-6 py-3 rounded-xl bg-green-600 hover:bg-green-700 transition">Explore Dashboard</button>
-        </div>
-        <img src="/heroIllustration.png" alt="Students doing safety drill" className="mx-auto max-w-xs md:max-w-md mb-10 rounded-lg" />
 
-        <svg className="absolute top-10 left-5 w-20 animate-shake opacity-30" viewBox="0 0 64 64">
-          <rect x="20" y="20" width="20" height="30" fill="#FF6B6B" />
-          <rect x="25" y="25" width="5" height="10" fill="#fff" />
-          <rect x="35" y="25" width="5" height="10" fill="#fff" />
-        </svg>
-        <svg className="absolute bottom-5 right-5 w-30 animate-wave opacity-20" viewBox="0 0 120 60">
-          <path d="M0 30 Q30 20 60 30 T120 30 L120 60 L0 60 Z" fill="#4D9DE0" />
-        </svg>
-        <svg className="absolute top-1/3 right-16 w-16 animate-flicker opacity-25" viewBox="0 0 64 64">
-          <path d="M32 2 C22 20 42 25 32 62 C32 62 22 25 32 2 Z" fill="#FF6B35" />
-          <path d="M32 10 C26 22 38 25 32 50 C32 50 26 25 32 10 Z" fill="#FFD93D" />
-        </svg>
-      </section> */}
 
       {/* How It Works */}
       <section id="how-it-works" className="max-w-7xl mx-auto py-24 px-4 text-center">
