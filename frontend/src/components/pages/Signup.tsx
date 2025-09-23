@@ -13,6 +13,7 @@ const Signup: React.FC = () => {
         <h2 className="text-3xl font-bold text-center mb-8 text-cyan-400 drop-shadow-[0_0_10px_#06b6d4]">
           Sign Up
         </h2>
+        
 
         {/* Name */}
         <div className="relative mb-6">
