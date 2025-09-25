@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
         {/* Left side content */}
         <div className="absolute inset-0 flex items-center px-16 z-10">
           <div className="w-1/2 text-white">
-            <h1 className="text-6xl font-bold"><span className="text-blue-600">Be Ready. Stay Safe.</span><br /><h2 className="text-red-700 mt-2">Learn Disaster Preparedness Digitally.</h2></h1>
+            <h1 className="text-6xl font-bold"><span className="text-blue-600">Be Ready. Stay Safe.</span><br /><h2 className="text-red-700">Learn Disaster Preparedness Digitally.</h2></h1>
             <p className="mt-6 text-lg text-gray-300">
               Stay prepared with our AI-powered disaster prediction and
               response system.
