@@ -282,6 +282,7 @@
 
 import React, { useState } from "react";
 import { FaPlay } from "react-icons/fa"; // add at the top
+import Quiz from "../Quiz";
 
 
 interface Video {
@@ -331,7 +332,7 @@ const sectionsData: Section[] = [
 
 const VirtualDrill: React.FC = () => {
     const [showModal, setShowModal] = useState(false);
-
+    const [showQuiz, setShowQuiz] = useState(false);
     const [sections, setSections] = useState(sectionsData);
     const [activeSection, setActiveSection] = useState(1);
     const [modalVideo, setModalVideo] = useState<Video | null>(null);
@@ -379,8 +380,8 @@ const VirtualDrill: React.FC = () => {
                         key={section.id}
                         onClick={() => setActiveSection(section.id)}
                         className={`px-4 py-2 rounded-full transition-all ${activeSection === section.id
-                                ? "bg-cyan-400 text-gray-900 shadow-[0_0_10px_#06b6d4]"
-                                : "bg-gray-700 hover:bg-cyan-400 hover:text-gray-900"
+                            ? "bg-cyan-400 text-gray-900 shadow-[0_0_10px_#06b6d4]"
+                            : "bg-gray-700 hover:bg-cyan-400 hover:text-gray-900"
                             }`}
                     >
                         {section.title}
@@ -428,7 +429,10 @@ const VirtualDrill: React.FC = () => {
             <div className="mt-8 p-6 bg-gray-800 rounded-2xl shadow-lg text-center">
                 <h2 className="text-2xl text-cyan-400 mb-4">Quiz: {active.title}</h2>
                 {isQuizUnlocked(active) ? (
-                    <button className="mt-4 px-6 py-2 bg-cyan-400 text-gray-900 rounded-full shadow-[0_0_10px_#06b6d4]">
+                    <button
+                        onClick={() => setShowQuiz(true)}
+                        className="mt-4 px-6 py-2 bg-cyan-400 text-gray-900 rounded-full shadow-[0_0_10px_#06b6d4]"
+                    >
                         Start Quiz
                     </button>
                 ) : (
@@ -440,6 +444,13 @@ const VirtualDrill: React.FC = () => {
                     </button>
                 )}
             </div>
+            {showQuiz && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
+                    <Quiz sectionId={active.id} onClose={() => setShowQuiz(false)} />
+                </div>
+            )}
+
+
 
             {modalVideo && (
                 <div
