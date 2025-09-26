@@ -205,8 +205,8 @@ const Navbar: React.FC = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/safety" className={({ isActive }) => `${baseStyle} ${hoverStyle} ${isActive ? activeStyle : ""}`}>
-                Learn Safety
+              <NavLink to="/modules" className={({ isActive }) => `${baseStyle} ${hoverStyle} ${isActive ? activeStyle : ""}`}>
+                Modules
               </NavLink>
             </li>
             <li>

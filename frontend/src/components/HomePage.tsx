@@ -20,11 +20,25 @@ const HomePage: React.FC = () => {
         <div className="absolute inset-0 flex items-center px-16 z-10">
           <div className="w-1/2 text-white">
             {/* <h1 className="text-6xl font-bold"> */}
-              <span className="text-blue-600 text-6xl font-bold">Be Ready. Stay Safe.</span><br /><h2 className="text-red-700 text-6xl font-bold">Learn Disaster Preparedness Digitally.</h2>
+            <span className="text-blue-600 text-6xl font-bold">Be Ready. Stay Safe.</span><br /><h2 className="text-red-700 text-6xl font-bold">Learn Disaster Preparedness Digitally.</h2>
             <p className="mt-6 text-lg text-gray-300">
               Stay prepared with our AI-powered disaster prediction and
               response system.
             </p>
+            {/* CTA Buttons */}
+            <a
+              href="/modules"
+              className="mt-4 mr-4 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+            >
+              Explore Modules
+            </a>
+
+            <a
+              href="/toolkit"
+              className="mt-4 inline-block bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+            >
+              Emergency Toolkit
+            </a>
           </div>
         </div>
 
@@ -73,9 +87,9 @@ const HomePage: React.FC = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-12">Features</h2>
         <div className="flex flex-wrap justify-center gap-8">
           {[
-            { icon: "fas fa-gamepad", title: "Gamified Learning", desc: "Earn badges & points while learning about disaster safety." },
+            { icon: "fas fa-gamepad", title: "Gamified Learning", desc: "Fun and Easy learning with Quizes and get your Certificate" },
             { icon: "fas fa-vr-cardboard", title: "Virtual Drills", desc: "3D/VR simulations for practical disaster practice." },
-            { icon: "fas fa-globe", title: "Multi-language", desc: "Access in English, Hindi, or your regional language." },
+            { icon: "fas fa-globe", title: "Multi-lingual", desc: "Access in English, Hindi, or your regional language." },
             { icon: "fas fa-bell", title: "Real-time Alerts", desc: "Instant warnings for your region in case of disasters." },
             { icon: "fas fa-ambulance", title: "Emergency SOS", desc: "One-click access to fire brigade, hospitals, and authorities." },
             { icon: "fas fa-chart-line", title: "Admin Dashboard", desc: "Track student progress, drill scores, and preparedness metrics." },
@@ -88,6 +102,18 @@ const HomePage: React.FC = () => {
           ))}
         </div>
       </section>
+      <div className="bg-blue-50 p-6 rounded-2xl shadow-sm">
+            <h3 className="text-2xl font-semibold text-blue-600 mb-3">
+              What We Do
+            </h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-2">
+              <li>🌊 Punjab-specific flood safety guidelines and evacuation routes.</li>
+              <li>🎮 Interactive flood simulation games for schools and colleges.</li>
+              <li>🤖 AI chatbot providing region-specific disaster guidance in Punjabi, Hindi, and English.</li>
+              <li>📱 Real-time alerts for Sutlej, Beas, and Ravi river water levels.</li>
+              <li>🏫 Virtual mock drills designed for Punjab educational institutions.</li>
+            </ul>
+          </div>
 
       {/* Preparedness Score */}
       <section id="score" className="bg-blue-600 text-white py-20 px-4 max-w-md mx-auto rounded-2xl shadow-lg text-center my-24">
@@ -98,12 +124,14 @@ const HomePage: React.FC = () => {
 
       {/* Testimonials */}
       <section id="testimonials" className="py-24 px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-12">What Our Stakeholders Say</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-12">Feedback</h2>
         <div className="flex flex-wrap justify-center gap-8">
           {[
+            { text: "Learn about the Disaster Management, got Certificate, great platform for Disaster Preparedness", author: "— Student, feedback " },
             { text: "Now our students know how to react in an earthquake and other disasters. It’s a game changer for safety education.", author: "— Principal, XYZ School" },
             { text: "My child enjoys learning through interactive drills and earns badges, making safety education fun!", author: "— Parent, ABC City" },
             { text: "Teachers can easily track which students need extra training. The dashboard is very intuitive.", author: "— Teacher, LMN School" },
+            
           ].map((t, idx) => (
             <div key={idx} className="bg-gray-100/10 backdrop-blur rounded-2xl p-8 shadow-lg text-gray-100 italic hover:-translate-y-2 hover:shadow-xl transition w-80">
               {t.text}

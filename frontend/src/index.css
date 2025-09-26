@@ -3,6 +3,13 @@
 body {
   @apply bg-gray-800 text-white;
 }
+.nocopy {
+  user-select: none;       /* Disable text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 
 
 /* custom-scrollbar */

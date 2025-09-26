@@ -12,6 +12,8 @@ import VirtualDrill from "./components/VirtualDrill";
 import Profile from "./components/Profile";
 import AdminDashboard from "./components/pages/AdminDashboard";
 // import SetPassword from "./components/pages/SetPassword";
+import Modules from "./components/Modules";
+import Toolkit from "./components/Toolkit";
 import SetupPassword from "./components/pages/SetPassword";
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route path="/alerts" element={<Alerts />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/aboutus" element={<Aboutus />} />
+          <Route path="/modules" element={<Modules />} />
+          <Route path="/toolkit" element={<Toolkit />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/setup-password/:token" element={<SetupPassword />} />
