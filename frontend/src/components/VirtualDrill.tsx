@@ -282,8 +282,8 @@ const VirtualDrill: React.FC = () => {
     const closeModal = () => setModalVideo(null);
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white p-8">
-            <h1 className="text-4xl text-center text-cyan-400 mb-8 drop-shadow-[0_0_10px_#06b6d4]">
+        <div className="min-h-screen bg-gray-100 text-black p-8">
+            <h1 className="text-4xl text-center text-black mb-8 ">
                 Virtual Drill & Preparedness
             </h1>
 
@@ -294,8 +294,8 @@ const VirtualDrill: React.FC = () => {
                         key={section.id}
                         onClick={() => setActiveSection(section.id)}
                         className={`px-4 py-2 rounded-full transition-all ${activeSection === section.id
-                                ? "bg-cyan-400 text-gray-900 shadow-[0_0_10px_#06b6d4]"
-                                : "bg-gray-700 hover:bg-cyan-400 hover:text-gray-900"
+                                ? "bg-blue-600 text-white "
+                                : "bg-gray-700 text-white hover:bg-blue-400 hover:text-white"
                             }`}
                     >
                         {section.title}
@@ -308,7 +308,7 @@ const VirtualDrill: React.FC = () => {
                 {active.videos.map(video => (
                     <div
                         key={video.id}
-                        className="bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer"
+                        className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
                         onClick={() => openModal(video)}
                     >
                         {/* Use first frame as thumbnail or placeholder image */}
@@ -326,7 +326,7 @@ const VirtualDrill: React.FC = () => {
                                     style={{ width: video.watched ? "100%" : "0%" }}
                                 ></div>
                             </div>
-                            <span className={video.watched ? "text-green-400" : "text-gray-400"}>
+                            <span className={video.watched ? "text-green-400" : "text-black"}>
                                 {video.watched ? "Watched ✅" : "Not Watched"}
                             </span>
                         </div>
@@ -335,19 +335,19 @@ const VirtualDrill: React.FC = () => {
             </div>
 
             {/* Quiz Section */}
-            <div className="mt-8 p-6 bg-gray-800 rounded-2xl shadow-lg text-center">
-                <h2 className="text-2xl text-cyan-400 mb-4">Quiz: {active.title}</h2>
+            <div className="mt-8 p-6 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl shadow-lg text-center">
+                <h2 className="text-2xl font-semibold text-white mb-4">Quiz: {active.title}</h2>
                 {isQuizUnlocked(active) ? (
                     <button
                         onClick={() => setShowQuiz(true)}
-                        className="mt-4 px-6 py-2 bg-cyan-400 text-gray-900 rounded-full shadow-[0_0_10px_#06b6d4]"
+                        className="mt-4 px-6 py-2 bg-black text-white rounded-full shadow-[0_0_10px_#06b6d4]"
                     >
                         Start Quiz
                     </button>
                 ) : (
                     <button
                         disabled
-                        className="mt-4 px-6 py-2 bg-gray-600 text-gray-400 rounded-full cursor-not-allowed"
+                        className="mt-4 px-6 py-2 bg-gray-800 text-white rounded-full cursor-not-allowed"
                     >
                         Quiz Locked - Watch all videos first
                     </button>

@@ -108,56 +108,62 @@ const Chatbot: React.FC = () => {
     //         }
     //     };
 
-    const askAI = async (text?: string) => {
-        const inputText = text || userInput;
-        if (!inputText.trim()) return;
+   const askAI = async (text?: string) => {
+  const inputText = text || userInput;
+  if (!inputText.trim()) return;
 
-        addMessage(inputText, "user");
-        setUserInput("");
+  addMessage(inputText, "user");
+  setUserInput("");
 
-        const lang = detectLanguage(inputText);
+  const lang = detectLanguage(inputText);
 
-        // System prompt based on language
-        let systemPrompt = "";
-        if (lang === "english") {
-            systemPrompt = `You are a helpful chatbot that provides guidance on disaster preparedness in India.
-- Respond strictly in English only; do not use Hindi or any other language.
-- Give answers in clear numbered or bullet-point format.`;
-        } else if (lang === "hindi") {
-            systemPrompt = `आप एक मददगार चैटबोट हैं जो भारत में आपदा तैयारी पर मार्गदर्शन देता है।
+  let systemPrompt = "";
+  if (lang === "english") {
+    systemPrompt = `You are a helpful chatbot that provides guidance on disaster preparedness in India.
+- Respond strictly in English only.
+- Use bullet points or numbered format.`;
+  } else if (lang === "hindi") {
+    systemPrompt = `आप भारत में आपदा तैयारी पर मार्गदर्शन देने वाले सहायक चैटबॉट हैं।
 - उत्तर केवल हिंदी में दें।
-- उत्तर बिंदुवार (point-wise) दें।`;
-        } else if (lang === "punjabi") {
-            systemPrompt = `ਤੁਸੀਂ ਇੱਕ ਸਹਾਇਕ ਚੈਟਬੋਟ ਹੋ ਜੋ ਭਾਰਤ ਵਿੱਚ ਆਫ਼ਤਾਂ ਲਈ ਤਿਆਰੀ ਬਾਰੇ ਸਲਾਹ ਦਿੰਦਾ ਹੈ।
-- ਜਵਾਬ ਸਿਰਫ ਪੰਜਾਬੀ ਵਿੱਚ ਦਿਓ।
-- ਜਵਾਬ ਬਿੰਦੂ-ਵਾਰ (point-wise) ਹੋਣੇ ਚਾਹੀਦੇ ਹਨ।`;
-        } else {
-            systemPrompt = `You are a helpful chatbot that provides guidance on disaster preparedness in India.
-- Respond in Hinglish (mix of Hindi & English).
-- Give answers in clear numbered or bullet-point format.`;
-        }
+- बिंदुवार उत्तर दें।`;
+  } else if (lang === "punjabi") {
+    systemPrompt = `ਤੁਸੀਂ ਭਾਰਤ ਵਿੱਚ ਆਫ਼ਤਾਂ ਲਈ ਤਿਆਰੀ ਬਾਰੇ ਸਲਾਹ ਦੇਣ ਵਾਲਾ ਸਹਾਇਕ ਚੈਟਬੋਟ ਹੋ।
+- ਜਵਾਬ ਸਿਰਫ਼ ਪੰਜਾਬੀ ਵਿੱਚ ਦਿਓ।
+- ਬਿੰਦੂ-ਵਾਰ ਜਵਾਬ ਦਿਓ।`;
+  } else {
+    systemPrompt = `You are a helpful chatbot that provides guidance on disaster preparedness in India.
+- Respond in Hinglish (mix of Hindi + English).
+- Use bullet points or numbered format.`;
+  }
 
-        try {
-            const response = await fetch(
-                "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyCaG_y9fBKkM5O7gzlyn5cYA5eZRnUg_88",
-                {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        system_instruction: { role: "system", parts: [{ text: systemPrompt }] },
-                        contents: [{ role: "user", parts: [{ text: inputText }] }],
-                    }),
-                }
-            );
+  try {
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyCaG_y9fBKkM5O7gzlyn5cYA5eZRnUg_88",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          systemInstruction: { role: "system", parts: [{ text: systemPrompt }] }, // ✅ fixed
+          contents: [{ role: "user", parts: [{ text: inputText }] }],
+        }),
+      }
+    );
 
-            const data = await response.json();
-            const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "⚠️ No reply from AI.";
-            addMessage(reply, "bot");
-        } catch (error) {
-            console.error(error);
-            addMessage("⚠️ Error fetching AI response.", "bot");
-        }
-    };
+    const data = await response.json();
+    console.log("Gemini response:", data);
+
+    const reply =
+      data?.candidates?.[0]?.content?.parts
+        ?.map((p: any) => p.text)
+        .join("\n") || "⚠️ No reply from AI."; // ✅ fixed
+
+    addMessage(reply, "bot");
+  } catch (error) {
+    console.error(error);
+    addMessage("⚠️ Error fetching AI response.", "bot");
+  }
+};
+
 
     return (
         <div className="flex justify-center items-center h-[712px] bg-gray-800 px4">

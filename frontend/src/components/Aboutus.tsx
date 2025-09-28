@@ -52,7 +52,7 @@ export default function Aboutus() {
 
           {/* Punjab Focus */}
           <div className="bg-blue-50 p-6 rounded-2xl shadow-sm">
-            <h3 className="text-2xl font-semibold text-orange-600 mb-3">
+            <h3 className="text-2xl font-semibold text-blue-600 mb-3">
               Punjab-Specific Features
             </h3>
             <ul className="list-disc list-inside text-gray-700 space-y-2">

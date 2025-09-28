@@ -621,7 +621,7 @@ const FloodAnalysis: React.FC = () => {
   };
 
   return (
-    <div className="p-6 max-w-6xl mx-auto bg-gray-500 min-h-screen">
+    <div className="p-6 max-w-6xl mx-auto bg-gray-100 min-h-screen">
       {/* Water Level Card */}
       {/* {waterLevels && (
         <div className="mb-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -643,14 +643,14 @@ const FloodAnalysis: React.FC = () => {
       <FloodWeatherCard/>
 
       {/* Monthly Chart & Risk Zones */}
-      <div className="bg-gray-200 mt-5 p-6 rounded-xl shadow-md">
+      <div className="bg-white mt-5 p-6 rounded-xl shadow-md">
         <h1 className="text-2xl font-bold mb-4 text-gray-800">Punjab Flood Analysis</h1>
         <p className="mb-4 text-gray-600">
           Date range: {START_DATE} → {END_DATE}. Shows monthly precipitation, water levels, and risk zones.
         </p>
 
         {loading && (
-          <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-70 z-40">
+          <div className="fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-70 z-40">
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 border-4 border-t-cyan-400 border-gray-700 rounded-full animate-spin"></div>
               <p className="mt-4 text-cyan-400 text-lg font-semibold drop-shadow-[0_0_10px_#06b6d4]">Loading...</p>

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 body {
-  @apply bg-gray-800 text-white;
+  @apply bg-white text-black;
 }
 .nocopy {
   user-select: none;       /* Disable text selection */

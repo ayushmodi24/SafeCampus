@@ -14,11 +14,11 @@ const HomePage: React.FC = () => {
     setCurrentVideo((prev) => (prev + 1) % videoSources.length);
   };
   return (
-    <div className="font-sans scroll-smooth bg-gray-800 text-gray-800">
+    <div className="font-sans scroll-smooth bg-gray-100 text-gray-800">
       <section className="relative w-full h-screen flex">
         {/* Left side content */}
         <div className="absolute inset-0 flex items-center px-16 z-10">
-          <div className="w-1/2 text-white">
+          <div className="w-1/2 text-black">
             {/* <h1 className="text-6xl font-bold"> */}
             <span className="text-blue-600 text-6xl font-bold">Be Ready. Stay Safe.</span><br /><h2 className="text-red-700 text-6xl font-bold">Learn Disaster Preparedness Digitally.</h2>
             <p className="mt-6 text-lg text-gray-300">
@@ -64,17 +64,17 @@ const HomePage: React.FC = () => {
       <section id="how-it-works" className="max-w-7xl mx-auto py-24 px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-12">How It Works</h2>
         <div className="flex flex-wrap justify-center gap-10">
-          <div className="bg-gray-100/10 backdrop-blur rounded-2xl p-8 shadow-lg text-gray-100 hover:-translate-y-2 hover:shadow-xl transition w-72">
+          <div className="bg-white backdrop-blur rounded-2xl p-8 shadow-lg text-black hover:-translate-y-2 hover:shadow-xl transition w-72">
             <div className="text-4xl text-blue-600 mb-4"><i className="fas fa-book-reader"></i></div>
             <h3 className="text-xl font-semibold mb-3">Learn Modules</h3>
             <p className="">Watch animated videos and complete quizzes to learn about floods, earthquakes, fires, and other disasters.</p>
           </div>
-          <div className="bg-gray-100/10 backdrop-blur rounded-2xl p-8 shadow-lg text-gray-100 hover:-translate-y-2 hover:shadow-xl transition w-72">
+          <div className="bg-white backdrop-blur rounded-2xl p-8 shadow-lg text-black hover:-translate-y-2 hover:shadow-xl transition w-72">
             <div className="text-4xl text-blue-600 mb-4"><i className="fas fa-vr-cardboard"></i></div>
             <h3 className="text-xl font-semibold mb-3">Practice Drills</h3>
             <p className="">Engage in virtual simulations to practice real-life disaster scenarios and make safe decisions.</p>
           </div>
-          <div className="bg-gray-100/10 backdrop-blur rounded-2xl p-8 shadow-lg text-gray-100  hover:-translate-y-2 hover:shadow-xl transition w-72">
+          <div className="bg-white backdrop-blur rounded-2xl p-8 shadow-lg text-black  hover:-translate-y-2 hover:shadow-xl transition w-72">
             <div className="text-4xl text-blue-600 mb-4"><i className="fas fa-bell"></i></div>
             <h3 className="text-xl font-semibold mb-3">Stay Ready</h3>
             <p className="">Receive real-time alerts and certificates upon completing drills and modules to track preparedness.</p>
@@ -94,7 +94,7 @@ const HomePage: React.FC = () => {
             { icon: "fas fa-ambulance", title: "Emergency SOS", desc: "One-click access to fire brigade, hospitals, and authorities." },
             { icon: "fas fa-chart-line", title: "Admin Dashboard", desc: "Track student progress, drill scores, and preparedness metrics." },
           ].map((f, idx) => (
-            <div key={idx} className="bg-gray-100/10 backdrop-blur rounded-2xl p-8 shadow-lg text-gray-100 hover:-translate-y-2 hover:shadow-xl transition w-72 text-center">
+            <div key={idx} className="bg-white backdrop-blur rounded-2xl p-8 shadow-lg text-black hover:-translate-y-2 hover:shadow-xl transition w-72 text-center">
               <div className="text-4xl text-orange-500 mb-4"><i className={f.icon}></i></div>
               <h3 className="text-xl font-semibold mb-3">{f.title}</h3>
               <p className="">{f.desc}</p>
@@ -102,18 +102,18 @@ const HomePage: React.FC = () => {
           ))}
         </div>
       </section>
-      <div className="bg-blue-50 p-6 rounded-2xl shadow-sm">
-            <h3 className="text-2xl font-semibold text-blue-600 mb-3">
-              What We Do
-            </h3>
-            <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>🌊 Punjab-specific flood safety guidelines and evacuation routes.</li>
-              <li>🎮 Interactive flood simulation games for schools and colleges.</li>
-              <li>🤖 AI chatbot providing region-specific disaster guidance in Punjabi, Hindi, and English.</li>
-              <li>📱 Real-time alerts for Sutlej, Beas, and Ravi river water levels.</li>
-              <li>🏫 Virtual mock drills designed for Punjab educational institutions.</li>
-            </ul>
-          </div>
+      <h3 className="text-3xl font-bold text-blue-600 mb-12 ml-170">
+        What We Do
+      </h3>
+      <div className="bg-white backdrop-blur text-black p-6 rounded-2xl shadow-sm mx-110">
+        <ul className="list-disc list-inside text-gray-700 space-y-2">
+          <li>🌊 Punjab-specific flood safety guidelines and evacuation routes.</li>
+          <li>🎮 Interactive flood simulation games for schools and colleges.</li>
+          <li>🤖 AI chatbot providing region-specific disaster guidance in Punjabi, Hindi, and English.</li>
+          <li>📱 Real-time alerts for Sutlej, Beas, and Ravi river water levels.</li>
+          <li>🏫 Virtual mock drills designed for Punjab educational institutions.</li>
+        </ul>
+      </div>
 
       {/* Preparedness Score */}
       <section id="score" className="bg-blue-600 text-white py-20 px-4 max-w-md mx-auto rounded-2xl shadow-lg text-center my-24">
@@ -131,9 +131,9 @@ const HomePage: React.FC = () => {
             { text: "Now our students know how to react in an earthquake and other disasters. It’s a game changer for safety education.", author: "— Principal, XYZ School" },
             { text: "My child enjoys learning through interactive drills and earns badges, making safety education fun!", author: "— Parent, ABC City" },
             { text: "Teachers can easily track which students need extra training. The dashboard is very intuitive.", author: "— Teacher, LMN School" },
-            
+
           ].map((t, idx) => (
-            <div key={idx} className="bg-gray-100/10 backdrop-blur rounded-2xl p-8 shadow-lg text-gray-100 italic hover:-translate-y-2 hover:shadow-xl transition w-80">
+            <div key={idx} className="bg-white backdrop-blur rounded-2xl p-8 shadow-lg text-black italic hover:-translate-y-2 hover:shadow-xl transition w-80">
               {t.text}
               <div className="text-blue-600 font-bold text-right mt-4">{t.author}</div>
             </div>
