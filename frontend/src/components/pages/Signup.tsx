@@ -63,7 +63,7 @@ const Signup: React.FC = () => {
 
 
   return (
-    <div className="min-h-[712px] flex items-center justify-center bg-gray-900 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 relative overflow-hidden">
       {/* Neon Glow Top */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[10px] bg-cyan-400 rounded-xl blur-lg"></div>
 

@@ -15,6 +15,9 @@ import AdminDashboard from "./components/pages/AdminDashboard";
 import Modules from "./components/Modules";
 import Toolkit from "./components/Toolkit";
 import SetupPassword from "./components/pages/SetPassword";
+import FloodModule from "./components/FloodModule";
+import FireModule from "./components/FireModule";
+import EarthquakeModule from "./components/EarthquakeModule";
 function App() {
   return (
     <div className=''>
@@ -35,6 +38,9 @@ function App() {
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/setup-password/:token" element={<SetupPassword />} />
           <Route path="/virtualdrill" element={<VirtualDrill />} />
+          <Route path="/flood" element={<FloodModule />} />
+          <Route path="/fire" element={<FireModule />} />
+          <Route path="/earthquake" element={<EarthquakeModule />} />
         </Routes>
       </Router>
     </div>

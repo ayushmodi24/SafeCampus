@@ -477,7 +477,7 @@ const CITIES = [
 const START_DATE = "2023-09-24";
 const END_DATE = "2025-09-23";
 const COLORS = ["#EF4444", "#3B82F6", "#10B981", "#F59E0B", "#8B5CF6"];
-const PRECIP_NORMAL = 0;
+// const PRECIP_NORMAL = 0;
 const PRECIP_WARNING = 150;
 const PRECIP_DANGER = 250;
 

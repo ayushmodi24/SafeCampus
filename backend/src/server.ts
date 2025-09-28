@@ -3,6 +3,9 @@ import cors from "cors";
 import mongoose from "mongoose";
 import config from "./config/db";
 import authRoutes from "./routes";
+import profileRoutes from "./routes/profile";
+import progressRoutes from "./routes/progress";
+
 
 const app = express();
 
@@ -21,6 +24,10 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/profile", profileRoutes); // ✅ different base path
+
+app.use("/api", progressRoutes);
+
 
 // Start server
 app.listen(config.PORT, () => {

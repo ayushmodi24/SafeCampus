@@ -1,5 +1,6 @@
 // src/FrontPage.tsx
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const videoSources = [
   "/video2.mp4",
@@ -9,6 +10,7 @@ const videoSources = [
 
 const HomePage: React.FC = () => {
   const [currentVideo, setCurrentVideo] = useState(0);
+    const navigate = useNavigate();
 
   const handleVideoEnd = () => {
     setCurrentVideo((prev) => (prev + 1) % videoSources.length);
@@ -64,17 +66,20 @@ const HomePage: React.FC = () => {
       <section id="how-it-works" className="max-w-7xl mx-auto py-24 px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-12">How It Works</h2>
         <div className="flex flex-wrap justify-center gap-10">
-          <div className="bg-white backdrop-blur rounded-2xl p-8 shadow-lg text-black hover:-translate-y-2 hover:shadow-xl transition w-72">
+          <div className="bg-white backdrop-blur rounded-2xl p-8 shadow-lg text-black hover:-translate-y-2 hover:shadow-xl transition w-72 cursor-pointer"
+          onClick={() => navigate("/modules")}>
             <div className="text-4xl text-blue-600 mb-4"><i className="fas fa-book-reader"></i></div>
             <h3 className="text-xl font-semibold mb-3">Learn Modules</h3>
             <p className="">Watch animated videos and complete quizzes to learn about floods, earthquakes, fires, and other disasters.</p>
           </div>
-          <div className="bg-white backdrop-blur rounded-2xl p-8 shadow-lg text-black hover:-translate-y-2 hover:shadow-xl transition w-72">
+          <div className="bg-white backdrop-blur rounded-2xl p-8 shadow-lg text-black hover:-translate-y-2 hover:shadow-xl transition w-72 cursor-pointer"
+          onClick={() => navigate("/virtualdrill")}>
             <div className="text-4xl text-blue-600 mb-4"><i className="fas fa-vr-cardboard"></i></div>
             <h3 className="text-xl font-semibold mb-3">Practice Drills</h3>
             <p className="">Engage in virtual simulations to practice real-life disaster scenarios and make safe decisions.</p>
           </div>
-          <div className="bg-white backdrop-blur rounded-2xl p-8 shadow-lg text-black  hover:-translate-y-2 hover:shadow-xl transition w-72">
+          <div className="bg-white backdrop-blur rounded-2xl p-8 shadow-lg text-black  hover:-translate-y-2 hover:shadow-xl transition w-72 cursor-pointer"
+          onClick={() => navigate("/alerts")}>
             <div className="text-4xl text-blue-600 mb-4"><i className="fas fa-bell"></i></div>
             <h3 className="text-xl font-semibold mb-3">Stay Ready</h3>
             <p className="">Receive real-time alerts and certificates upon completing drills and modules to track preparedness.</p>

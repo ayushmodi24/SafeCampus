@@ -166,9 +166,9 @@ const Chatbot: React.FC = () => {
 
 
     return (
-        <div className="flex justify-center items-center h-[712px] bg-gray-800 px4">
+        <div className="flex justify-center items-center h-screen bg-gray-800 px4">
             {/* Left Panel */}
-            <div className="bg-[#111111] h-[712px] w-[450px] p-6 text-white flex flex-col">
+            <div className="bg-[#111111] h-screen w-[450px] p-6 text-white flex flex-col">
                 {/* Bot Avatar + Title */}
                 <div className="flex flex-col items-center mb-4">
                     <img
